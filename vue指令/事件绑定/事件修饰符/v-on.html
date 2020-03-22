@@ -1,0 +1,49 @@
+<!--
+    事件修饰符
+    .stop 阻止冒泡
+    v-on.click.stop='handle'
+    .prevent 阻止默认行为
+    v-on.click.prevent='handle'
+    .self
+    按键修饰符
+    .enter 回车键
+    v-on.keyup.enter='submit'
+    .delete 删除键
+    v-on.keyup.delete='submit'
+-->
+
+<div id="app">
+    <div>{{ num }}</div>
+   <div>
+<div v-on:click='handle0'>
+    <button v-on:click.stop='handle1'>点击一</button>
+</div>
+<div>
+    <a href="http://www.baidu.com" v-on:click.prevent='handle2'>百度</a>
+</div>
+</div>
+<script type="text/javascript" src="../../../js/vue.js"></script>
+<script type=text/javascript>
+   
+    var app = new Vue({
+     el: '#app',
+     data: {
+       num: '0'
+     },
+     //方法
+     methods:{
+      handle0:function () {
+        //this 是vue的实例对象
+        this.num++;
+      },
+      handle1:function (event) {
+          //阻止冒泡
+        //event.stopPropagation();
+      },
+      handle2:function (event) {
+          //阻止默认行为
+        //event.preventDefault();
+      },
+     }
+    })
+ </script>

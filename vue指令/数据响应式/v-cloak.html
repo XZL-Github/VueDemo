@@ -1,0 +1,39 @@
+<!--
+    v-cloak指令用法
+    插值表达式存在的问题:"闪动"
+    如何解决问题:使用v-cloca指令
+    解决该问题的原理:先隐藏,替换好值之后再显示最终的值
+    1.提供样式
+      [v-cloak]{
+          display:none;
+      }
+    2.在插值表达式所在的标签中添加v-cloak指令
+-->
+<style>
+    [v-cloak]{
+        display: none;
+    }
+</style>
+<div id="app">
+    <div v-cloak>{{ message }}</div>
+    <div>{{1+2}}</div>
+    <div>{{message+'---------123'}}</div>
+</div>
+<script type="text/javascript" src="../js/vue.js"></script>
+<script type=text/javascript>
+  setTimeout(() => {
+    var app = new Vue({
+     el: '#app',
+     data: {
+       message: 'Hello Vue!'
+     }
+   })
+  }, 
+  5000);
+//  var app = new Vue({
+//      el: '#app',
+//      data: {
+//        message: 'Hello Vue!'
+//      }
+//    })
+ </script>

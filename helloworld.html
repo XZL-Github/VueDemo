@@ -1,0 +1,24 @@
+<div id="app">
+   <div>{{ message }}</div> 
+   <div>{{1+2}}</div>
+   <div>{{message+'---------123'}}</div>
+</div>
+<script type="text/javascript" src="js/vue.js"></script>
+<script type=text/javascript>
+      var app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Hello Vue!'
+    }
+  })
+</script>
+<!--
+    1.实例参数分析
+    el:元素的挂载位置(值可以是CSS现选择器或者DOM元素)
+    data:模型数据(值是一个对象)
+    2.差值表达式用法
+    将数据填充到Html标签中
+    插值表达式支持基本的计算操作
+    3.vue运行的原理
+    编译过程的概念(Vue语法->Vue框架->原生语法)
+-->

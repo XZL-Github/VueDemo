@@ -1,0 +1,39 @@
+<!--
+     按键修饰符
+    .enter 回车键
+    v-on.keyup.enter='submit'
+    .delete 删除键
+    v-on.keyup.delete='submit'
+    自定义按键修饰符
+    Vue.config.keyCodes.f1=112
+-->
+
+<div id="app">
+    <form>
+        <p>用户名<input type="text" v-model='userName' v-on.keyup.delete='clearUserName' /></p>
+        <p>密码<input type="text" v-model='userPwd' v-on.keyup.enter='submit'/></p>
+        <button v-on:click='submit'>提交</button>
+    </form>
+</div>
+<script type="text/javascript" src="../../../js/vue.js"></script>
+<script type=text/javascript>
+
+    var app = new Vue({
+     el: '#app',
+     data: {
+        userName: '1213131',
+        userPwd:'zxzxzx'
+     },
+     //方法
+     methods:{
+      submit:function () {
+        //this 是vue的实例对象
+        //  console.log($`用户名:{this.userName},密码:{this.userPwd}`);
+        console.log(this.userName,this.userPwd);
+      },
+      clearUserName:function () {
+          this.userName='';
+      }
+     }
+    })
+ </script>
